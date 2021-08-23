@@ -12,8 +12,6 @@ const Map = withScriptjs(
 					lat: -34.397,
 					lng: 150.644,
 				}}
-				// center={liveLocation ? liveLocation : destination}
-				// heading={liveLocation ? liveLocation.heading : 90}
 			>
 				<Marker
 					position={{

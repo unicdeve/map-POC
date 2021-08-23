@@ -1,42 +1,37 @@
 import React from 'react';
+import faker from 'faker';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
-
-const options = {
-	zoomControlOptions: {
-		// position: google.maps.ControlPosition.RIGHT_CENTER,
-	},
-};
-
-const containerStyle = {
-	width: '400px',
-	height: '400px',
-};
-
-const center = {
-	lat: -34.397,
-	lng: 150.644,
-};
 
 export default function CustomMap() {
 	const { isLoaded, loadError } = useJsApiLoader({
 		googleMapsApiKey: 'AIzaSyBNLrJhOMz6idD05pzfn5lhA-TAw-mAZCU',
 	});
 
+	const markers = [0, 0, 0, 0].map((_) => ({
+		lat: parseFloat(faker.address.latitude()),
+		lng: parseFloat(faker.address.longitude()),
+	}));
+
 	const renderMap = () => {
 		return (
 			<GoogleMap
-				options={options}
-				mapContainerStyle={containerStyle}
+				mapContainerStyle={{
+					width: '400px',
+					height: '400px',
+				}}
 				zoom={8}
-				center={center}
+				center={markers[0]}
 			>
-				<Marker
-					position={{
-						lat: -34.397,
-						lng: 150.644,
-					}}
-					title={'Destination'}
-				/>
+				{markers.map(({ lat, lng }, i) => (
+					<Marker
+						key={i}
+						position={{
+							lat,
+							lng,
+						}}
+						title={`Marker ${i}`}
+					/>
+				))}
 			</GoogleMap>
 		);
 	};
