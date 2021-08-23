@@ -1,5 +1,5 @@
 import './App.css';
-import CustomMap from './Map';
+import CustomMap from './Map2';
 
 function App() {
 	return (

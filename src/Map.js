@@ -22,7 +22,6 @@ const Map = withScriptjs(
 					}}
 					title={'Destination'}
 					icon={{
-						url: 'https://delivast-public.s3.us-east-2.amazonaws.com/images/tracking.png',
 						scaledSize: { width: 43.5, height: 60 },
 					}}
 				/>
