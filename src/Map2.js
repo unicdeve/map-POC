@@ -19,7 +19,7 @@ export default function CustomMap() {
 					width: '400px',
 					height: '400px',
 				}}
-				zoom={8}
+				zoom={11}
 				center={markers[0]}
 			>
 				{markers.map(({ lat, lng }, i) => (
